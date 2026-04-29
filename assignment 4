@@ -1,0 +1,39 @@
+# Assignment 4: DHCP Configuration
+
+## Objective
+To configure a DHCP server on a router and assign IP addresses automatically to clients.
+
+---
+
+## Configuration
+
+enable  
+configure terminal  
+
+ip dhcp pool xyz  
+network 192.168.10.0 255.255.255.0  
+dns-server 1.2.3.4  
+lease 0 3  
+exit  
+
+no service dhcp bootp  
+
+---
+
+## Client Configuration
+
+Set PC to obtain IP address automatically (DHCP).
+
+---
+
+## Diagram
+
+PC ---- Switch ---- Router (DHCP Server)
+
+Fig 1: DHCP Network Topology
+
+---
+
+## Result
+
+IP addresses were successfully assigned to clients using DHCP.
