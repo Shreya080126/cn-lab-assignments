@@ -1,0 +1,96 @@
+# Assignment 2: Analysis of Network Protocols using Wireshark
+
+## Objective
+To capture and analyze different network protocols such as ICMP, TCP, UDP, DNS, HTTP, and ARP using Wireshark.
+
+---
+
+## ICMP Packet Analysis
+
+ICMP (Internet Control Message Protocol) is used for error reporting and network diagnostics.
+
+- Observed Echo Request and Echo Reply using ping command  
+- Request sent from source to destination  
+- Reply received successfully  
+
+Result: ICMP communication verified.
+
+---
+
+## TCP Packet Analysis
+
+TCP (Transmission Control Protocol) is a connection-oriented protocol.
+
+- Observed three-way handshake:
+  1. SYN
+  2. SYN-ACK
+  3. ACK  
+- Ensures reliable communication  
+
+Result: TCP connection established successfully.
+
+---
+
+## UDP Packet Analysis
+
+UDP (User Datagram Protocol) is a connectionless protocol.
+
+- No handshake process observed  
+- Faster but less reliable communication  
+
+Result: UDP packets captured successfully.
+
+---
+
+## DNS Packet Analysis
+
+DNS (Domain Name System) is used to resolve domain names into IP addresses.
+
+- Observed DNS query (request)  
+- Observed DNS response with IP address  
+
+Result: Domain name resolved successfully.
+
+---
+
+## HTTP Packet Analysis
+
+HTTP (HyperText Transfer Protocol) is used for web communication.
+
+- Observed HTTP request (client → server)  
+- Observed HTTP response (server → client)  
+
+Result: Web communication verified.
+
+---
+
+## ARP Packet Analysis
+
+ARP (Address Resolution Protocol) is used to map IP address to MAC address.
+
+- Observed ARP request  
+- Observed ARP reply  
+
+Result: MAC address resolved successfully.
+
+---
+
+## Address Identification
+
+- Source IP Address: 192.168.1.x  
+- Destination IP Address: Varies (based on traffic)  
+- MAC addresses identified using Ethernet header  
+
+---
+
+## Simple Diagram
+
+PC (Wireshark) ---- Switch ---- Router ---- Internet
+
+Fig 1: Network used for protocol analysis
+
+---
+
+## Result
+
+Different network protocols such as ICMP, TCP, UDP, DNS, HTTP, and ARP were successfully captured and analyzed using Wireshark.
