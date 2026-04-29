@@ -1,0 +1,62 @@
+# Assignment 1: Wireshark Packet Capture and Analysis
+
+## Objective
+To capture live network packets using Wireshark and identify basic network protocols such as TCP, UDP, IP, DNS, and ICMP.
+
+---
+
+## Procedure
+
+1. Open Wireshark and select the active network interface (Wi-Fi or Ethernet).
+2. Start packet capture by double-clicking on the interface.
+3. Generate network traffic by:
+   - Opening a web browser and visiting any website (e.g., google.com)
+   - OR running the command:
+     ping google.com
+4. Stop packet capture using the red stop button.
+5. Apply filters to view specific protocols (ip, tcp, udp, dns, icmp).
+
+---
+
+## Network Diagram
+
+[ PC (Wireshark) ] ---- [ Switch ] ---- [ Router ] ---- [ Internet ]
+
+Fig 1: Network Topology for Packet Capture
+
+---
+
+## Filters Used
+
+| Filter | Purpose |
+|--------|--------|
+| ip     | Show IP packets |
+| tcp    | Show TCP packets |
+| udp    | Show UDP packets |
+| dns    | Show DNS packets |
+| icmp   | Show ping packets |
+
+---
+
+## Packet Analysis
+
+- Ethernet Header: Contains source and destination MAC addresses  
+- IP Header: Contains source and destination IP addresses  
+- TCP/UDP Header: Contains port numbers and protocol information  
+- Payload Data: Contains the actual transmitted data  
+
+---
+
+## Observation
+
+- Interface used: Wi-Fi  
+- Protocols observed: TCP, UDP, DNS, IP, ICMP  
+- Source IP Address: 192.168.1.x  
+- Destination IP Address: 8.8.8.8  
+- Packet Length: Approximately 60–1500 bytes  
+
+---
+
+## Result
+
+Live network packets were successfully captured using Wireshark, and basic network protocols were identified and analyzed.
