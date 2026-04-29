@@ -1,0 +1,78 @@
+# Assignment 3: Network Topologies using Cisco Packet Tracer
+
+## Objective
+To create different network topologies and verify connectivity using the ping command.
+
+---
+
+## Q1: Connect one PC with another PC
+
+PC1 -------- PC2  
+
+Result: Ping successful between both PCs.
+
+---
+
+## Q2: Connect a PC with Router
+
+PC -------- Router  
+
+Result: PC successfully communicates with router.
+
+---
+
+## Q3: Connect 2 PCs
+
+PC1 -------- PC2  
+
+Result: Communication successful.
+
+---
+
+## Q4: Connect 2 PCs using Switch
+
+PC1 -------- Switch -------- PC2  
+
+Result: Communication successful through switch.
+
+---
+
+## Q5: Bus Topology
+
+PC1 --- PC2 --- PC3 --- PC4  
+
+Result: All PCs connected in bus topology and ping successful.
+
+---
+
+## Q6: Ring Topology
+
+PC1 --- PC2 --- PC3 --- PC4 --- PC1  
+
+Result: Circular communication established successfully.
+
+---
+
+## Q7: Extended Ring Topology
+
+PC1 --- PC2 --- PC3 --- PC4 --- PC5 --- PC1  
+
+Result: Extended ring created and communication verified.
+
+---
+
+## Q8: Tree Topology
+
+            Switch  
+           /      \  
+        PC1       PC2  
+       /            \  
+     PC3            PC4  
+
+Result: Hierarchical topology created and all nodes connected successfully.
+
+---
+
+## Conclusion
+
+Different network topologies such as point-to-point, bus, ring, and tree were created successfully and connectivity was verified using ping command.
