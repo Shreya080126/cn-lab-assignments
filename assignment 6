@@ -1,0 +1,90 @@
+
+
+# Assignment 6 – IP Addressing & Subnetting
+
+## Objective
+To configure IP addressing on devices and perform basic subnetting to enable communication within and between networks.
+
+---
+
+## Theory
+An IP address uniquely identifies a device in a network.
+
+- IPv4 is a 32-bit address.
+- Subnetting divides a network into smaller networks.
+- Default gateway is the router interface used to reach other networks.
+
+---
+
+## Network Setup
+Devices used:
+- 1 Router (R1)
+- 1 Switch
+- 2 PCs
+
+---
+
+## IP Addressing Scheme
+
+| Device | Interface | IP Address | Subnet Mask | Gateway |
+|--------|----------|------------|-------------|---------|
+| R1 | Fa0/0 | 192.168.1.1 | 255.255.255.0 | - |
+| PC1 | NIC | 192.168.1.10 | 255.255.255.0 | 192.168.1.1 |
+| PC2 | NIC | 192.168.1.20 | 255.255.255.0 | 192.168.1.1 |
+
+---
+
+## Configuration
+
+### Router R1
+
+enable
+configure terminal
+interface fastEthernet 0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+
+
+---
+
+### PC Configuration
+
+#### PC1
+- IP Address: 192.168.1.10  
+- Subnet Mask: 255.255.255.0  
+- Default Gateway: 192.168.1.1  
+
+#### PC2
+- IP Address: 192.168.1.20  
+- Subnet Mask: 255.255.255.0  
+- Default Gateway: 192.168.1.1  
+
+---
+
+## Subnetting Example
+
+Network: 192.168.1.0/24  
+
+- Network Address: 192.168.1.0  
+- First Host: 192.168.1.1  
+- Last Host: 192.168.1.254  
+- Broadcast Address: 192.168.1.255  
+
+---
+
+## Verification
+
+Use ping command:
+
+ping 192.168.1.20
+
+
+---
+
+## Result
+Devices successfully communicated using proper IP addressing.
+
+---
+
+## Conclusion
+IP addressing and subnetting help organize networks and enable communication between devices.
