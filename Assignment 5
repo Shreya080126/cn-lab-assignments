@@ -1,0 +1,108 @@
+# Assignment 5 – Static Routing
+
+## Objective
+To configure static routing between two networks so that devices can communicate.
+
+---
+
+## Theory
+Routing is the process of forwarding packets between networks.
+
+Static routing is a method where routes are manually configured by the network administrator. It is simple and suitable for small networks.
+
+---
+
+## Network Setup
+Devices used:
+- 2 Routers (R1, R2)
+- 2 Switches
+- 2 PCs
+
+---
+
+## IP Addressing
+
+| Device | Interface | IP Address | Subnet Mask |
+|--------|----------|------------|-------------|
+| R1 | Fa0/0 | 192.168.1.1 | 255.255.255.0 |
+| R1 | Serial | 10.0.0.1 | 255.255.255.252 |
+| R2 | Serial | 10.0.0.2 | 255.255.255.252 |
+| R2 | Fa0/0 | 172.16.0.1 | 255.255.0.0 |
+| PC1 | NIC | 192.168.1.100 | 255.255.255.0 |
+| PC2 | NIC | 172.16.0.100 | 255.255.0.0 |
+
+---
+
+## Configuration
+
+### Router R1
+
+enable
+configure terminal
+interface fastEthernet 0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+
+interface serial 1/0
+ip address 10.0.0.1 255.255.255.252
+clock rate 64000
+no shutdown
+
+ip route 172.16.0.0 255.255.0.0 10.0.0.2
+
+
+---
+
+### Router R2
+
+enable
+configure terminal
+interface serial 1/0
+ip address 10.0.0.2 255.255.255.252
+no shutdown
+
+interface fastEthernet 0/0
+ip address 172.16.0.1 255.255.0.0
+no shutdown
+
+ip route 192.168.1.0 255.255.255.0 10.0.0.1
+
+
+---
+
+## PC Configuration
+
+### PC1
+- IP Address: 192.168.1.100  
+- Subnet Mask: 255.255.255.0  
+- Default Gateway: 192.168.1.1  
+
+### PC2
+- IP Address: 172.16.0.100  
+- Subnet Mask: 255.255.0.0  
+- Default Gateway: 172.16.0.1  
+
+---
+
+## Verification
+Use ping command:
+
+
+ping 172.16.0.100
+
+
+or
+
+
+ping 192.168.1.100
+
+
+---
+
+## Result
+Communication between both networks was successful using static routing.
+
+---
+
+## Conclusion
+Static routing provides a simple method to connect networks where routes are fixed 
