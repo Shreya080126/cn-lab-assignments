@@ -1,0 +1,97 @@
+# Assignment 8 – Border Gateway Protocol (BGP)
+
+## Objective
+To configure and analyze BGP routing between different Autonomous Systems (AS).
+
+---
+
+## Theory
+BGP (Border Gateway Protocol) is a path vector routing protocol used to exchange routing information between different Autonomous Systems.
+
+Key Concepts:
+- Autonomous System (AS): A group of networks under one administration
+- eBGP: Routing between different AS
+- iBGP: Routing within the same AS
+- Uses TCP port 179
+- Path selection based on attributes (AS_PATH, NEXT_HOP)
+
+---
+
+## Network Setup
+Devices used:
+- 3 Routers (R1, R2, R3)
+- Each router belongs to a different AS
+- LAN connected to each router
+
+---
+
+## IP Addressing Scheme
+
+| Device | Interface | IP Address | Subnet Mask |
+|--------|----------|------------|-------------|
+| R1 | G0/0 | 192.168.1.1 | 255.255.255.0 |
+| R1 | G0/1 | 10.0.0.1 | 255.255.255.252 |
+| R2 | G0/0 | 10.0.0.2 | 255.255.255.252 |
+| R2 | G0/1 | 10.0.0.5 | 255.255.255.252 |
+| R3 | G0/0 | 10.0.0.6 | 255.255.255.252 |
+| R3 | G0/1 | 192.168.3.1 | 255.255.255.0 |
+
+---
+
+## Configuration
+
+### Router R1 (AS 100)
+
+enable
+configure terminal
+router bgp 100
+neighbor 10.0.0.2 remote-as 200
+network 192.168.1.0 mask 255.255.255.0
+
+
+---
+
+### Router R2 (AS 200)
+
+enable
+configure terminal
+router bgp 200
+neighbor 10.0.0.1 remote-as 100
+neighbor 10.0.0.6 remote-as 300
+network 10.0.0.0 mask 255.255.255.252
+
+
+---
+
+### Router R3 (AS 300)
+
+enable
+configure terminal
+router bgp 300
+neighbor 10.0.0.5 remote-as 200
+network 192.168.3.0 mask 255.255.255.0
+
+
+---
+
+## Verification
+
+Check BGP table:
+
+show ip bgp
+
+
+Check routing:
+
+show ip route
+
+
+---
+
+## Result
+BGP routing was successfully configured and communication between different Autonomous Systems was achieved.
+
+---
+
+## Conclusion
+BGP is used for routing between different networks on the Internet and ensures efficient path selection.
