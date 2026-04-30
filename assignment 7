@@ -1,0 +1,127 @@
+# Assignment 7 – Routing using RIP Version 2
+
+## Objective
+To configure and verify routing using RIP Version 2 protocol in a network.
+
+---
+
+## Theory
+RIP (Routing Information Protocol) is a distance vector routing protocol.
+
+- Uses hop count as metric  
+- Maximum hop count = 15  
+- Automatically shares routing information  
+- RIP Version 2 supports subnetting (classless routing)
+
+---
+
+## Network Setup
+Devices used:
+- 3 Routers (R1, R2, R3)
+- 2 LAN networks
+- 2 PCs
+
+---
+
+## IP Addressing Scheme
+
+| Device | Interface | IP Address | Subnet Mask |
+|--------|----------|------------|-------------|
+| R1 | S0/0/0 | 100.1.1.2 | 255.255.255.0 |
+| R1 | S0/0/1 | 20.1.1.1 | 255.255.255.0 |
+| R2 | S0/0/0 | 100.1.1.1 | 255.255.255.0 |
+| R2 | G0/0 | 172.16.2.1 | 255.255.0.0 |
+| R3 | S0/0/1 | 20.1.1.2 | 255.255.255.0 |
+| R3 | G0/0 | 10.2.2.1 | 255.255.255.0 |
+| PC1 | NIC | 172.16.2.10 | 255.255.0.0 |
+| PC2 | NIC | 10.2.2.20 | 255.255.255.0 |
+
+---
+
+## Configuration
+
+### Router R1
+
+enable
+configure terminal
+interface s0/0/0
+ip address 100.1.1.2 255.255.255.0
+clock rate 64000
+no shutdown
+
+interface s0/0/1
+ip address 20.1.1.1 255.255.255.0
+no shutdown
+
+router rip
+version 2
+no auto-summary
+network 100.1.1.0
+network 20.1.1.0
+
+
+---
+
+### Router R2
+
+enable
+configure terminal
+interface s0/0/0
+ip address 100.1.1.1 255.255.255.0
+no shutdown
+
+interface g0/0
+ip address 172.16.2.1 255.255.0.0
+no shutdown
+
+router rip
+version 2
+no auto-summary
+network 100.1.1.0
+network 172.16.0.0
+
+
+---
+
+### Router R3
+
+enable
+configure terminal
+interface s0/0/1
+ip address 20.1.1.2 255.255.255.0
+no shutdown
+
+interface g0/0
+ip address 10.2.2.1 255.255.255.0
+no shutdown
+
+router rip
+version 2
+no auto-summary
+network 20.1.1.0
+network 10.2.2.0
+
+
+---
+
+## Verification
+
+Check routing table:
+
+show ip route
+
+
+Test connectivity:
+
+ping 10.2.2.20
+
+
+---
+
+## Result
+All routers successfully exchanged routing information using RIP and communication between networks was achieved.
+
+---
+
+## Conclusion
+RIP is a simple dynamic routing protocol that uses hop count to determine the best path.
